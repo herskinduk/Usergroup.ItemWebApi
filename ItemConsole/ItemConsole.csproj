@@ -51,6 +51,7 @@
   <ItemGroup>
     <Compile Include="AuthenticatedRsaRequest.cs" />
     <Compile Include="AuthenticatedRequest.cs" />
+    <Compile Include="UpdateItemRequest.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
