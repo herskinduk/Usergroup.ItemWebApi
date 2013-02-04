@@ -10,15 +10,17 @@ namespace ItemConsole
     {
         static void Main(string[] args)
         {
+            UpdateItemRequest.UpdateFieldOnHomeItem("title", "new title...");
+
             //Console.WriteLine("Get name home item:");
-            //Console.WriteLine(AuthenticatedRequest.GetHomeItemName());
+            //Console.WriteLine(AuthenticatedRequest.GetHomeItemDisplayName());
 
             //Console.WriteLine("RSA - Get name home item:");
-            //Console.WriteLine(AuthenticatedRsaRequest.GetHomeItemName());
+            //Console.WriteLine(AuthenticatedRsaRequest.GetHomeItemDisplayName());
 
             //for (int i = 0; i < 20; i++)
             //{
-            //    Console.WriteLine(AuthenticatedRequest.GetHomeItemName() + " " + i.ToString());
+            //    Console.WriteLine(AuthenticatedRequest.GetHomeItemDisplayName() + " " + i.ToString());
             //    System.Threading.Thread.Sleep(250);
             //}
 

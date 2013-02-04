@@ -7,12 +7,13 @@ using System.Net;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web;
 
 namespace ItemConsole
 {
     public class UpdateItemRequest
     {
-        public static string GetHomeItemName()
+        public static void UpdateFieldOnHomeItem(string fieldName, string fieldValue)
         {
             // Setup Item request
             var request = 
@@ -21,19 +22,24 @@ namespace ItemConsole
             // Username and password
             request.Headers.Add("X-Scitemwebapi-Username", "admin");
             request.Headers.Add("X-Scitemwebapi-Password", "b");
+            request.Method = "PUT";
 
+            var data = Encoding.UTF8.GetBytes(string.Format("{0}={1}", HttpUtility.UrlEncode(fieldName), HttpUtility.UrlEncode(fieldValue)));
+            request.ContentLength = data.Length;
+            request.ContentType = "application/x-www-form-urlencoded";
+
+            var requestStream = request.GetRequestStream();
+            requestStream.Write(data, 0, data.Length);
+            requestStream.Close();
+
+            // Check status is OK
             var response = (HttpWebResponse)request.GetResponse();
-
-            var name = "";
             using (var streamReader = new StreamReader(response.GetResponseStream()))
             {
                 var result = streamReader.ReadToEnd();
-
-                // Parse JSON and fish out item name
                 dynamic json = JObject.Parse(result);
-                name = json.result.items[0].DisplayName;
+                if (json.status != "OK") throw new Exception(json.ToString());
             }
-            return name;
         }
     }
 }

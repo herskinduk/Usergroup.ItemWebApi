@@ -12,7 +12,7 @@ namespace ItemConsole
 {
     public class AuthenticatedRequest
     {
-        public static string GetHomeItemName()
+        public static string GetHomeItemDisplayName()
         {
             // Setup Item request
             var request = 
@@ -31,6 +31,8 @@ namespace ItemConsole
 
                 // Parse JSON and fish out item name
                 dynamic json = JObject.Parse(result);
+                if (json.status != "OK") throw new Exception(json.ToString());
+
                 name = json.result.items[0].DisplayName;
             }
             return name;
