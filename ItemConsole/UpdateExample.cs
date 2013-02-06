@@ -11,7 +11,7 @@ using System.Web;
 
 namespace ItemConsole
 {
-    public class UpdateItemRequest
+    public class UpdateExample
     {
         public static void UpdateFieldOnHomeItem(string fieldName, string fieldValue)
         {
@@ -32,14 +32,8 @@ namespace ItemConsole
             requestStream.Write(data, 0, data.Length);
             requestStream.Close();
 
-            // Check status is OK
             var response = (HttpWebResponse)request.GetResponse();
-            using (var streamReader = new StreamReader(response.GetResponseStream()))
-            {
-                var result = streamReader.ReadToEnd();
-                dynamic json = JObject.Parse(result);
-                if (json.status != "OK") throw new Exception(json.ToString());
-            }
+            ConsoleExt.WriteJsonStream(response.GetResponseStream());
         }
     }
 }

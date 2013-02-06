@@ -51,15 +51,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AuthenticatedRsaRequest.cs" />
-    <Compile Include="AuthenticatedRequest.cs" />
-    <Compile Include="UpdateItemRequest.cs" />
+    <Compile Include="ConsoleExtension.cs" />
+    <Compile Include="RsaAuthenticationExample.cs" />
+    <Compile Include="AuthenticationExample.cs" />
+    <Compile Include="DeleteExample.cs" />
+    <Compile Include="CreateExample.cs" />
+    <Compile Include="UpdateExample.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="pizza_0000.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

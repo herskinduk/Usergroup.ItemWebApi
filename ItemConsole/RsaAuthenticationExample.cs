@@ -11,9 +11,9 @@ using System.Threading.Tasks;
 
 namespace ItemConsole
 {
-    public class AuthenticatedRsaRequest
+    public class RsaAuthenticationExample
     {
-        public static string GetHomeItemDisplayName()
+        public static void GetHomeItem()
         {
             // Aquire public key
             var publicKeyRequest = 
@@ -33,18 +33,7 @@ namespace ItemConsole
             request.Headers.Add("X-Scitemwebapi-Password", RsaEncrypt("b", publicKey));
 
             var response = (HttpWebResponse)request.GetResponse();
-            var name = "";
-            using (var streamReader = new StreamReader(response.GetResponseStream()))
-            {
-                var result = streamReader.ReadToEnd();
-
-                // Parse JSON and fish out item name
-                dynamic json = JObject.Parse(result);
-                if (json.status != "OK") throw new Exception(json.ToString());
-
-                name = json.result.items[0].DisplayName;
-            }
-            return name;
+            ConsoleExt.WriteJsonStream(response.GetResponseStream());
         }
 
         /// <summary>

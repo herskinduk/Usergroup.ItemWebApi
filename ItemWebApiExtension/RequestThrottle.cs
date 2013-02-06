@@ -12,6 +12,7 @@ namespace ItemWebApiExtension
 {
     public class RequestThrottle : RequestProcessor
     {
+        #region Members
         private double _activityInterval = 10000;
         private int _minimumResponseInterval = 1000;
         private HttpContextWrapper _context;
@@ -34,7 +35,8 @@ namespace ItemWebApiExtension
 
         public RequestThrottle()
         {
-        }
+        } 
+        #endregion
 
         public override void Process(RequestArgs arguments)
         {
@@ -44,6 +46,7 @@ namespace ItemWebApiExtension
             }
         }
 
+        #region Implementation
         public bool AverageResponseIntervalLessThanMinimum()
         {
             var requestKey = GenerateRequestKey();
@@ -118,5 +121,6 @@ namespace ItemWebApiExtension
                 LastRequest = requestTime;
             }
         }
+        #endregion
     }
 }

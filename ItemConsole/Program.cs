@@ -10,7 +10,13 @@ namespace ItemConsole
     {
         static void Main(string[] args)
         {
-            UpdateItemRequest.UpdateFieldOnHomeItem("title", "new title...");
+            //CreateExample.CreateItemUnderHome("Child Item", "Sample/Sample Item");
+
+            //UpdateExample.UpdateFieldOnHomeItem("Title", "A new title...");
+            
+            //DeleteExample.DeleteItemsUnderHome();
+
+            CreateExample.CreateMediaItem("pizza", "pizza_0000.png");
 
             //Console.WriteLine("Get name home item:");
             //Console.WriteLine(AuthenticatedRequest.GetHomeItemDisplayName());
