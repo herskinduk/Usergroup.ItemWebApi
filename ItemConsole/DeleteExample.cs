@@ -16,7 +16,7 @@ namespace ItemConsole
         public static void DeleteItemsUnderHome()
         {
             // Setup Item request
-            var request = WebRequest.CreateHttp("http://sitecoreukug/-/item/v1/sitecore/content/home?scope=c");
+            var request = WebRequest.CreateHttp("http://usergroup/-/item/v1/sitecore/content/home?scope=c");
             // Important: Children scope ->                                                          ^^^^^^^
 
             // Setup username and password headers

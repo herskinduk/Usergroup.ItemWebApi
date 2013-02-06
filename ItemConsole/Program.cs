@@ -10,24 +10,23 @@ namespace ItemConsole
     {
         static void Main(string[] args)
         {
-            //CreateExample.CreateItemUnderHome("Child Item", "Sample/Sample Item");
+            AuthenticationExample.GetHomeItem();
 
-            //UpdateExample.UpdateFieldOnHomeItem("Title", "A new title...");
+            RsaAuthenticationExample.GetHomeItem();
+
+            CreateExample.CreateItemUnderHome("Child Item", "Sample/Sample Item");
+
+            UpdateExample.UpdateFieldOnChildrenOfHome("Title", "A new title...");
             
-            //DeleteExample.DeleteItemsUnderHome();
+            DeleteExample.DeleteItemsUnderHome();
 
-            CreateExample.CreateMediaItem("pizza", "pizza_0000.png");
-
-            //Console.WriteLine("Get name home item:");
-            //Console.WriteLine(AuthenticatedRequest.GetHomeItemDisplayName());
-
-            //Console.WriteLine("RSA - Get name home item:");
-            //Console.WriteLine(AuthenticatedRsaRequest.GetHomeItemDisplayName());
+            //CreateExample.CreateMediaItem("pizza", "pizza_0000.png");
 
             //for (int i = 0; i < 20; i++)
             //{
-            //    Console.WriteLine(AuthenticatedRequest.GetHomeItemDisplayName() + " " + i.ToString());
-            //    System.Threading.Thread.Sleep(250);
+            //    AuthenticationExample.GetHomeItem();
+            //    Console.WriteLine(">>> " + i.ToString());
+            //    System.Threading.Thread.Sleep(100);
             //}
 
             Console.ReadLine();

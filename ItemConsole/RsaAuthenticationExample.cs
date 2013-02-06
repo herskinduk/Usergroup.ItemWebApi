@@ -17,13 +17,13 @@ namespace ItemConsole
         {
             // Aquire public key
             var publicKeyRequest = 
-                (HttpWebRequest)WebRequest.Create("http://sitecoreukug/-/item/v1/-/actions/getpublickey");
+                (HttpWebRequest)WebRequest.Create("http://usergroup/-/item/v1/-/actions/getpublickey");
             var publicKeyResponse = (HttpWebResponse)publicKeyRequest.GetResponse();
             var publicKey = new StreamReader(publicKeyResponse.GetResponseStream()).ReadToEnd();
 
             // Setup Item request
-            var request = 
-                (HttpWebRequest)WebRequest.Create("http://sitecoreukug/-/item/v1/sitecore/content/home");
+            var request =
+                (HttpWebRequest)WebRequest.Create("http://usergroup/-/item/v1/sitecore/content/home");
 
             // Tell Sitecore that credentails are encrypted
             request.Headers.Add("X-Scitemwebapi-Encrypted", "1");

@@ -26,7 +26,6 @@ namespace ItemConsole
             request.Headers.Add("X-Scitemwebapi-Username", "admin");
             request.Headers.Add("X-Scitemwebapi-Password", "b");
             request.Method = "POST";
-
             request.ContentLength = 0;
 
             var response = (HttpWebResponse)request.GetResponse();
@@ -38,8 +37,8 @@ namespace ItemConsole
         {
             // Setup Item request
             var request = WebRequest.CreateHttp(
-                "http://usergroup/-/item/v1/sitecore/media%20library?name=" + 
-                HttpUtility.UrlEncode(itemName));
+            "http://usergroup/-/item/v1/sitecore/media%20library?name=" + 
+            HttpUtility.UrlEncode(itemName));
 
             // Create boundry marker
             var boundary = "----------------------------" + DateTime.Now.Ticks.ToString("x");

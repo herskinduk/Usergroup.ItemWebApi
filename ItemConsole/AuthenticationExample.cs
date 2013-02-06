@@ -15,8 +15,8 @@ namespace ItemConsole
         public static void GetHomeItem()
         {
             // Setup Item request
-            var request = 
-                (HttpWebRequest)WebRequest.Create("http://sitecoreukug/-/item/v1/sitecore/content/home");
+            var request =
+                (HttpWebRequest)WebRequest.Create("http://usergroup/-/item/v1/sitecore/content/home");
 
             // Username and password
             request.Headers.Add("X-Scitemwebapi-Username", "admin");
