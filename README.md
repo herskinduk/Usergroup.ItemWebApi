@@ -16,6 +16,7 @@ This is a Console application with examples of how you interact with the Sitecor
 
 Note: For authentication the username is looked up in the website domain.
 
+Note: ItemConsole uses version 4.5 of NewtonSoft.Json.dll. This may not be the same version as the one used in Sitecore... so don't copy it there.
 RequestThrottle
 ==
 An example of a pipeline processor that will throttle the API requests per ip address. The example uses a moving average strategy.
