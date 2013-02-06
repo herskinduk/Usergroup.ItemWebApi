@@ -14,7 +14,7 @@ This is a Console application with examples of how you interact with the Sitecor
   - Update a field on an item
   - Create/delete items
 
-Note: For authentication the username is looked up in the website domain unless the domain is specified explicitly in the username (e.g. "sitecore\admin").
+Note: For authentication the username is looked up in the website domain.
 
 RequestThrottle
 ==
