@@ -1,5 +1,4 @@
 ﻿using Sitecore.ItemWebApi.Pipelines.Request;
-//using Sitecore.Sites;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,8 +12,18 @@ namespace ItemWebApiExtension
     public class RequestThrottle : RequestProcessor
     {
         #region Members
-        private double _activityInterval = 10000;
-        private int _minimumResponseInterval = 1000;
+        public double ActivityInterval
+        {
+            get;
+            set;
+        }
+
+        public int MinimumRequestInterval
+        {
+            get;
+            set;
+        }
+
         private HttpContextWrapper _context;
 
         private HttpContextWrapper Context
@@ -28,26 +37,29 @@ namespace ItemWebApiExtension
             }
         }
 
-        public RequestThrottle(HttpContextWrapper context)
+
+        public RequestThrottle(HttpContextWrapper context) : this()
         {
             _context = context;
         }
 
         public RequestThrottle()
         {
+            ActivityInterval = 10000;
+            MinimumRequestInterval = 1000;
         } 
         #endregion
 
         public override void Process(RequestArgs arguments)
         {
-            if (AverageResponseIntervalLessThanMinimum())
+            if (AverageRequestIntervalLessThanMinimum())
             {
                 throw new UnauthorizedAccessException("Request limit exceeded.");
             }
         }
 
         #region Implementation
-        public bool AverageResponseIntervalLessThanMinimum()
+        public bool AverageRequestIntervalLessThanMinimum()
         {
             var requestKey = GenerateRequestKey();
             var movingAverage = GetMovingAverage(requestKey);
@@ -55,7 +67,7 @@ namespace ItemWebApiExtension
             movingAverage.IncrementCountAndRecalculate(Context.Timestamp);
             UpdateMovingAverage(requestKey, movingAverage);
 
-            return (movingAverage.AverageResponseInterval < _minimumResponseInterval);
+            return (movingAverage.AverageResponseInterval < MinimumRequestInterval);
         }
 
         private string GenerateRequestKey()
@@ -69,9 +81,9 @@ namespace ItemWebApiExtension
             {
                 Context.Cache.Add(
                     requestKey,
-                    new MovingAverage(_activityInterval, Context.Timestamp),
+                    new MovingAverage(ActivityInterval, Context.Timestamp),
                     null,
-                    DateTime.Now.AddMilliseconds(_activityInterval),
+                    DateTime.Now.AddMilliseconds(ActivityInterval),
                     Cache.NoSlidingExpiration,
                     CacheItemPriority.Low,
                     null);
@@ -88,7 +100,7 @@ namespace ItemWebApiExtension
                     requestKey,
                     movingAverage,
                     null,
-                    DateTime.Now.AddSeconds(_activityInterval),
+                    DateTime.Now.AddSeconds(ActivityInterval),
                     Cache.NoSlidingExpiration,
                     CacheItemPriority.Low,
                     null);

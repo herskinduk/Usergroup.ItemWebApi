@@ -10,17 +10,17 @@ namespace ItemConsole
     {
         static void Main(string[] args)
         {
-            AuthenticationExample.GetHomeItem();
+            //AuthenticationExample.GetHomeItem();
 
-            RsaAuthenticationExample.GetHomeItem();
+            //RsaAuthenticationExample.GetHomeItem();
 
-            CreateExample.CreateItemUnderHome("Child Item", "Sample/Sample Item");
+            //CreateExample.CreateItemUnderHome("Child Item", "Sample/Sample Item");
 
-            UpdateExample.UpdateFieldOnChildrenOfHome("Title", "A new title...");
+            //UpdateExample.UpdateFieldOnChildrenOfHome("Title", "A new title...");
             
-            DeleteExample.DeleteItemsUnderHome();
+            //DeleteExample.DeleteItemsUnderHome();
 
-            //CreateExample.CreateMediaItem("pizza", "pizza_0000.png");
+            CreateExample.CreateMediaItem("pizza", "pizza_0000.png");
 
             //for (int i = 0; i < 20; i++)
             //{
