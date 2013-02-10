@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{C4B73718-75F2-47F2-83A7-96BB21845B15}</ProjectGuid>
+    <ProjectGuid>{8C12EA96-E386-4780-B9A4-818188645F7F}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ItemWebApiExtension</RootNamespace>
-    <AssemblyName>ItemWebApiExtension</AssemblyName>
+    <RootNamespace>ItemWebApiExtension.Test</RootNamespace>
+    <AssemblyName>ItemWebApiExtension.Test</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -30,16 +30,11 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Sitecore.ItemWebApi">
-      <HintPath>..\lib\Sitecore.ItemWebApi.dll</HintPath>
-    </Reference>
-    <Reference Include="Sitecore.Kernel">
-      <HintPath>..\lib\Sitecore.Kernel.dll</HintPath>
+    <Reference Include="nunit.framework, Version=2.6.2.12296, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77, processorArchitecture=MSIL">
+      <HintPath>..\packages\NUnit.2.6.2\lib\nunit.framework.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Web" />
-    <Reference Include="System.Web.Abstractions" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -47,27 +42,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="HardCodedThrottleStrategyFactory.cs" />
-    <Compile Include="HttpRequestThrottle.cs" />
-    <Compile Include="IThrottle.cs" />
-    <Compile Include="IThrottleStrategy.cs" />
-    <Compile Include="IThrottleStrategyFactory.cs" />
-    <Compile Include="MovingAverage.cs" />
-    <Compile Include="MovingAverageConfig.cs" />
+    <Compile Include="MovingAverageShould.cs" />
+    <Compile Include="SimpleIntervalShould.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RequestThrottle.cs" />
-    <Compile Include="SimpleInterval.cs" />
-    <Compile Include="SimpleIntervalConfig.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App_Config\Include\Usergroup.RequestThrottle.config" />
-    <None Include="ClassDiagram1.cd" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ItemWebApiExtension\ItemWebApiExtension.csproj">
+      <Project>{c4b73718-75f2-47f2-83a7-96bb21845b15}</Project>
+      <Name>ItemWebApiExtension</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <PropertyGroup>
-    <PostBuildEvent>Copy $(TargetPath) D:\Websites\Development\sc66\Website\bin\
-Copy $(ProjectDir)\App_Config\Include\*.config D:\Websites\Development\sc66\Website\App_Config\Include\</PostBuildEvent>
-  </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

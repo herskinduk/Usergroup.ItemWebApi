@@ -1,5 +1,6 @@
-﻿using Sitecore.ItemWebApi.Pipelines.Request;
-using System;
+﻿using System;
+
+using Sitecore.ItemWebApi.Pipelines.Request;
 
 namespace ItemWebApiExtension
 {

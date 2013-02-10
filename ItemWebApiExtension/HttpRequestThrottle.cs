@@ -18,7 +18,7 @@ namespace ItemWebApiExtension
 
         public HttpRequestThrottle()
         {
-            ActivityInterval = 7500;  // TODO should come from DI
+            CacheExpirationPeriodMilliseconds = 10000;
         }
 
         private HttpContextBase Context
@@ -37,14 +37,11 @@ namespace ItemWebApiExtension
             }
         }
 
-        /// <summary>
-        /// Timeframe for tracking request activity (in milliseconds)
-        /// </summary>
-        public double ActivityInterval { get; set; }
+        public double CacheExpirationPeriodMilliseconds { get; set; }
 
         public bool IsAllowed()
         {
-            return ! IsRequestedAllowedByStrategy();
+            return IsRequestedAllowedByStrategy();
         }
 
         public bool IsRequestedAllowedByStrategy()
@@ -59,14 +56,14 @@ namespace ItemWebApiExtension
 
         private string GenerateRequestKey()
         {
-            return "AVG_THROTTLE_" + Context.Request.UserHostAddress;
+            return "REQUEST_THROTTLE_" + Context.Request.UserHostAddress;
         }
 
         private IThrottleStrategy GetThrottleStrategyFromCache(string requestKey)
         {
             if (Context.Cache[requestKey] == null)
             {
-                var throttleStrategy = ThrottleStrategyFactory.CreateInstance(Context.Timestamp);
+                var throttleStrategy = ThrottleStrategyFactory.CreateInstance();
                 AddToCache(requestKey, throttleStrategy);
             }
 
@@ -87,7 +84,7 @@ namespace ItemWebApiExtension
                 requestKey,
                 throttleStrategy,
                 null,
-                DateTime.Now.AddSeconds(ActivityInterval),
+                DateTime.Now.AddSeconds(CacheExpirationPeriodMilliseconds),
                 Cache.NoSlidingExpiration,
                 CacheItemPriority.Low,
                 null);

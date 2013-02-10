@@ -18,6 +18,8 @@ namespace ItemConsole
 //
 //            CreateExample.CreateMediaItem("pizza", "pizza_0000.png");
 
+            System.Threading.Thread.Sleep(100);
+
             for (int i = 0; i < 20; i++)
             {
                 AuthenticationExample.GetHomeItem();

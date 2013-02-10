@@ -6,27 +6,36 @@ namespace ItemWebApiExtension
     {
         private int _count;
         private DateTime _lastRequest;
-        private readonly MovingAverageConfig _movingAverageConfig;
+        private readonly MovingAverageConfig _config;
 
-        public MovingAverage(DateTime requestTime, MovingAverageConfig movingAverageConfig)
+        public MovingAverage(MovingAverageConfig config)
         {
             _count = 1;
-            _lastRequest = requestTime;
-            _movingAverageConfig = movingAverageConfig;
+            _config = config;
         }
 
         public bool IsAllowed(DateTime requestTime)
         {
-            var timespan = requestTime.Subtract(_lastRequest);
-
-            if (timespan.TotalMilliseconds > 0)
+            bool isAllowed;
+            if (_lastRequest == DateTime.MinValue)
             {
-                _movingAverageConfig.ActivityInterval += (timespan.TotalMilliseconds - _movingAverageConfig.ActivityInterval) / ++_count;
+                isAllowed = true;
+            }
+            else
+            {
+                var timespan = requestTime.Subtract(_lastRequest);
+
+                if (timespan.TotalMilliseconds > 0)
+                {
+                    _config.ActivityInterval += (timespan.TotalMilliseconds - _config.ActivityInterval) / ++_count;
+                }
+
+                isAllowed = (_config.ActivityInterval > _config.MinimumRequestInterval);
             }
 
             _lastRequest = requestTime;
 
-            return (_movingAverageConfig.ActivityInterval < _movingAverageConfig.MinimumRequestInterval);
+            return isAllowed;
         }
     }
 }
