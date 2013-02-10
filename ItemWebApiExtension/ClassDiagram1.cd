@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="ItemWebApiExtension.HardCodedThrottleStrategyFactory" BaseTypeListCollapsed="true">
+    <Position X="4" Y="2.25" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAAABAAAAAACABAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>HardCodedThrottleStrategyFactory.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="ItemWebApiExtension.HttpRequestThrottle" BaseTypeListCollapsed="true">
+    <Position X="11.5" Y="2.25" Width="3" />
+    <TypeIdentifier>
+      <HashCode>QAAAAAAAggAABAAAAAAAAAAAAAgAAAAAACAgABEABAE=</HashCode>
+      <FileName>HttpRequestThrottle.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="ItemWebApiExtension.MovingAverage" BaseTypeListCollapsed="true">
+    <Position X="8.25" Y="4.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAACAAAAAAAAAAQAACAAAAABAA=</HashCode>
+      <FileName>MovingAverage.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="ItemWebApiExtension.MovingAverageConfig">
+    <Position X="4.75" Y="6" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAA=</HashCode>
+      <FileName>MovingAverageConfig.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ItemWebApiExtension.RequestThrottle">
+    <Position X="0.5" Y="4.5" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAQAA=</HashCode>
+      <FileName>RequestThrottle.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="ItemWebApiExtension.IThrottle">
+    <Position X="8.75" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAA=</HashCode>
+      <FileName>IThrottle.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="ItemWebApiExtension.IThrottleStrategy">
+    <Position X="5.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAA=</HashCode>
+      <FileName>IThrottleStrategy.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="ItemWebApiExtension.IThrottleStrategyFactory">
+    <Position X="1.25" Y="2.25" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>IThrottleStrategyFactory.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
