@@ -28,12 +28,7 @@ Use the following configuration include to add throttling to API request pipelin
 	  <sitecore>
 		<pipelines>
 		  <itemWebApiRequest>
-			<processor patch:before="*[1]" type="ItemWebApiExtension.RequestThrottle, ItemWebApiExtension">
-			  <!-- Timeframe for tracking request activity (in milliseconds) -->
-			  <ActivityInterval>7500</ActivityInterval>
-			  <!-- Lower bound for average time between requests (in milliseconds) -->
-			  <MinimumRequestInterval>750</MinimumRequestInterval>
-			</processor>
+			<processor patch:before="*[1]" type="ItemWebApiExtension.RequestThrottle, ItemWebApiExtension" />
 		  </itemWebApiRequest>
 		</pipelines>
 	  </sitecore>
