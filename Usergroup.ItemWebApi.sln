@@ -5,6 +5,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ItemConsole", "ItemConsole\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ItemWebApiExtension", "ItemWebApiExtension\ItemWebApiExtension.csproj", "{C4B73718-75F2-47F2-83A7-96BB21845B15}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{FDB509C1-049A-49A6-982B-7D4AA90C2885}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ItemWebApiExtension.Test", "ItemWebApiExtension.Test\ItemWebApiExtension.Test.csproj", "{8C12EA96-E386-4780-B9A4-818188645F7F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{28C1E5E7-023D-4506-8DF0-7DC747E34E2E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -19,8 +25,17 @@ Global
 		{C4B73718-75F2-47F2-83A7-96BB21845B15}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C4B73718-75F2-47F2-83A7-96BB21845B15}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C4B73718-75F2-47F2-83A7-96BB21845B15}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8C12EA96-E386-4780-B9A4-818188645F7F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8C12EA96-E386-4780-B9A4-818188645F7F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8C12EA96-E386-4780-B9A4-818188645F7F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8C12EA96-E386-4780-B9A4-818188645F7F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{8C12EA96-E386-4780-B9A4-818188645F7F} = {FDB509C1-049A-49A6-982B-7D4AA90C2885}
+		{E4B9133C-7FA3-4230-837E-B39ED46C1E18} = {28C1E5E7-023D-4506-8DF0-7DC747E34E2E}
+		{C4B73718-75F2-47F2-83A7-96BB21845B15} = {28C1E5E7-023D-4506-8DF0-7DC747E34E2E}
 	EndGlobalSection
 EndGlobal
